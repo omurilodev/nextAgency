@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXT — Marketing para Profissionais da Saúde</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --cream: #F5F0E8;
+      --nude: #E8DDD0;
+      --warm-gray: #C4B8A8;
+      --brown: #8B7355;
+      --dark-brown: #3D2E1E;
+      --black: #1A1612;
+      --white: #FDFAF6;
+      --accent: #C9A96E;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 60px;
+      mix-blend-mode: normal;
+      transition: background 0.4s, padding 0.4s;
+    }
+
+    nav.scrolled {
+      background: rgba(26, 22, 18, 0.97);
+      backdrop-filter: blur(12px);
+      padding: 16px 60px;
+      border-bottom: 1px solid rgba(196, 184, 168, 0.15);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    nav.scrolled .nav-logo {
+      color: var(--black);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav.scrolled .nav-links a {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      border: 1px solid rgba(255, 255, 255, 0.6) !important;
+      padding: 10px 24px !important;
+      color: var(--white) !important;
+      transition: all 0.3s !important;
+    }
+
+    nav.scrolled .nav-cta {
+      border-color: rgba(255, 255, 255, 0.5) !important;
+      color: var(--white) !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--white) !important;
+      color: var(--black) !important;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      padding: 160px 60px 80px;
+      overflow: hidden;
+      background: var(--dark-brown);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg,
+          #2A1E12 0%,
+          #3D2E1E 40%,
+          #5C4435 70%,
+          #3D2E1E 100%);
+    }
+
+    .hero-texture {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse at 70% 50%, rgba(201, 169, 110, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(139, 115, 85, 0.2) 0%, transparent 50%);
+    }
+
+    /* Decorative lines */
+    .hero-lines {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .hero-lines::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 120px;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, rgba(201, 169, 110, 0.4), transparent);
+    }
+
+    .hero-lines::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 240px;
+      width: 1px;
+      height: 60%;
+      background: linear-gradient(to bottom, transparent, rgba(201, 169, 110, 0.15), transparent);
+      top: 20%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+      display: block;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(64px, 8vw, 110px);
+      font-weight: 300;
+      line-height: 0.92;
+      color: var(--white);
+      margin-bottom: 32px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-title strong {
+      font-weight: 600;
+      display: block;
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.6);
+      max-width: 420px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+      letter-spacing: 0.3px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--black);
+      padding: 16px 40px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: color 0.3s;
+    }
+
+    .btn-ghost:hover {
+      color: var(--accent);
+    }
+
+    .btn-ghost::after {
+      content: '→';
+      font-size: 16px;
+      transition: transform 0.3s;
+    }
+
+    .btn-ghost:hover::after {
+      transform: translateX(4px);
+    }
+
+    /* Scroll indicator */
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      right: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, rgba(201, 169, 110, 0.6), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+
+      0%,
+      100% {
+        opacity: 0.4;
+        transform: scaleY(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scaleY(0.6);
+      }
+    }
+
+    /* ── TICKER ── */
+    .ticker-wrap {
+      background: var(--accent);
+      padding: 14px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker {
+      display: inline-flex;
+      animation: ticker 30s linear infinite;
+    }
+
+    .ticker-item {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      letter-spacing: 3px;
+      color: var(--black);
+      padding: 0 40px;
+    }
+
+    .ticker-sep {
+      opacity: 0.4;
+      margin: 0 10px;
+    }
+
+    @keyframes ticker {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ── SECTION BASE ── */
+    section {
+      padding: 120px 60px;
+    }
+
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--black);
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--brown);
+    }
+
+    /* ── DOR / PROBLEMA ── */
+    .problem {
+      background: var(--cream);
+      padding: 100px 60px;
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .problem-left {}
+
+    .problem-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--dark-brown);
+      margin-bottom: 40px;
+    }
+
+    .problem-quote em {
+      font-style: italic;
+      color: var(--brown);
+      font-weight: 400;
+    }
+
+    .problem-body {
+      font-size: 15px;
+      font-weight: 300;
+      color: #6B5B4E;
+      line-height: 1.8;
+      max-width: 440px;
+    }
+
+    .problem-right {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      padding-left: 60px;
+      border-left: 1px solid var(--nude);
+    }
+
+    .pain-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .pain-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 300;
+      color: var(--nude);
+      line-height: 1;
+      min-width: 52px;
+    }
+
+    .pain-text h4 {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: var(--dark-brown);
+      margin-bottom: 6px;
+    }
+
+    .pain-text p {
+      font-size: 13px;
+      font-weight: 300;
+      color: #8B7B6E;
+      line-height: 1.7;
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      background: var(--black);
+      color: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      padding: 0;
+      max-width: 100%;
+    }
+
+    .about-image {
+      background: linear-gradient(135deg, #3D2E1E, #5C4435);
+      min-height: 600px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 60px;
+    }
+
+    .about-image-placeholder {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 60%, rgba(201, 169, 110, 0.2) 0%, transparent 60%),
+        linear-gradient(160deg, #3D2E1E 0%, #2A1E12 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-image-icon {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 180px;
+      font-weight: 300;
+      color: rgba(201, 169, 110, 0.15);
+      font-style: italic;
+      line-height: 1;
+    }
+
+    .about-image-label {
+      position: absolute;
+      bottom: 40px;
+      left: 40px;
+      background: var(--accent);
+      padding: 12px 24px;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--black);
+      font-weight: 500;
+    }
+
+    .about-content {
+      padding: 100px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .about-content .section-label {
+      color: var(--accent);
+    }
+
+    .about-content .section-title {
+      color: var(--white);
+      margin-bottom: 32px;
+    }
+
+    .about-content .section-title em {
+      color: var(--accent);
+    }
+
+    .about-body {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.9;
+      margin-bottom: 48px;
+    }
+
+    .about-body strong {
+      color: var(--white);
+      font-weight: 400;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 40px;
+    }
+
+    .stat-item {}
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* ── CASES / PORTFOLIO ── */
+    .cases {
+      background: var(--white);
+      padding: 120px 60px;
+    }
+
+    .cases-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 80px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cases-header-left {}
+
+    .cases-header-right {
+      font-size: 13px;
+      color: var(--brown);
+      text-decoration: none;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid var(--brown);
+      padding-bottom: 2px;
+      transition: all 0.3s;
+    }
+
+    .cases-header-right:hover {
+      gap: 14px;
+    }
+
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto;
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto 60px;
+    }
+
+    .case-card {
+      background: var(--cream);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .case-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .case-card:hover .case-overlay {
+      opacity: 1;
+    }
+
+    .case-card:hover .case-img-placeholder {
+      transform: scale(1.04);
+    }
+
+    /* Card sizes */
+    .case-card.large {
+      grid-column: span 7;
+    }
+
+    .case-card.medium {
+      grid-column: span 5;
+    }
+
+    .case-card.small {
+      grid-column: span 4;
+    }
+
+    .case-img-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .case-card.large .case-img-placeholder {
+      aspect-ratio: 16/10;
+    }
+
+    .case-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(26, 22, 18, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .case-overlay-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-style: italic;
+      color: var(--white);
+      letter-spacing: 1px;
+    }
+
+    .case-body {
+      padding: 28px 32px;
+    }
+
+    .case-tag {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .case-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--dark-brown);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .case-result {
+      font-size: 12px;
+      color: var(--warm-gray);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .case-result strong {
+      color: var(--brown);
+      font-weight: 500;
+    }
+
+    /* Case card colors */
+    .case-bg-1 {
+      background: linear-gradient(135deg, #D4C4B0, #C0AA90);
+    }
+
+    .case-bg-2 {
+      background: linear-gradient(135deg, #2A1E12, #3D2E1E);
+    }
+
+    .case-bg-3 {
+      background: linear-gradient(135deg, #E8DDD0, #D4C4B0);
+    }
+
+    .case-bg-4 {
+      background: linear-gradient(135deg, #5C4435, #3D2E1E);
+    }
+
+    .case-bg-5 {
+      background: linear-gradient(135deg, #C4B8A8, #B0A090);
+    }
+
+    .case-placeholder-icon {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 80px;
+      font-weight: 300;
+      font-style: italic;
+      opacity: 0.3;
+      color: var(--white);
+    }
+
+    .case-bg-1 .case-placeholder-icon,
+    .case-bg-3 .case-placeholder-icon,
+    .case-bg-5 .case-placeholder-icon {
+      color: var(--dark-brown);
+    }
+
+    /* Result highlight */
+    .case-result-highlight {
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: var(--white);
+      border-left: 2px solid var(--accent);
+    }
+
+    .case-result-highlight span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--dark-brown);
+      display: block;
+    }
+
+    .case-result-highlight small {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+    }
+
+    /* ── SERVICES ── */
+    .services {
+      background: var(--cream);
+      padding: 120px 60px;
+    }
+
+    .services-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .services-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      margin-bottom: 80px;
+      align-items: end;
+    }
+
+    .services-intro {
+      font-size: 15px;
+      font-weight: 300;
+      color: #6B5B4E;
+      line-height: 1.8;
+      padding-top: 20px;
+    }
+
+    .services-list {
+      border-top: 1px solid var(--nude);
+    }
+
+    .service-item {
+      border-bottom: 1px solid var(--nude);
+      padding: 0;
+      overflow: hidden;
+      transition: all 0.4s;
+    }
+
+    .service-trigger {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 32px 0;
+      cursor: pointer;
+      gap: 24px;
+    }
+
+    .service-trigger-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .service-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: var(--warm-gray);
+      font-weight: 300;
+      min-width: 28px;
+    }
+
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--dark-brown);
+      transition: color 0.3s;
+    }
+
+    .service-item.open .service-name {
+      color: var(--brown);
+    }
+
+    .service-icon {
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--warm-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--warm-gray);
+      flex-shrink: 0;
+      transition: all 0.3s;
+      transform: rotate(0deg);
+    }
+
+    .service-item.open .service-icon {
+      background: var(--dark-brown);
+      border-color: var(--dark-brown);
+      color: var(--white);
+      transform: rotate(45deg);
+    }
+
+    .service-body {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.4s ease;
+    }
+
+    .service-item.open .service-body {
+      grid-template-rows: 1fr;
+    }
+
+    .service-body-inner {
+      overflow: hidden;
+      padding-left: 52px;
+    }
+
+    .service-body-content {
+      padding-bottom: 32px;
+      font-size: 14px;
+      font-weight: 300;
+      color: #8B7B6E;
+      line-height: 1.8;
+      max-width: 540px;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      background: var(--dark-brown);
+      padding: 120px 60px;
+    }
+
+    .testimonials-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonials-inner .section-label {
+      color: var(--accent);
+    }
+
+    .testimonials-inner .section-title {
+      color: var(--white);
+      margin-bottom: 80px;
+    }
+
+    .testimonials-inner .section-title em {
+      color: var(--accent);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 48px 40px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: background 0.3s;
+    }
+
+    .testimonial-card:hover {
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .testimonial-stars {
+      color: var(--accent);
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+    }
+
+    .testimonial-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .testimonial-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--brown), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: var(--white);
+      font-style: italic;
+    }
+
+    .testimonial-info {}
+
+    .testimonial-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: 0.5px;
+    }
+
+    .testimonial-role {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.35);
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--cream);
+      padding: 160px 60px;
+      text-align: center;
+    }
+
+    .cta-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta-eyebrow {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin-bottom: 24px;
+    }
+
+    .cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(44px, 6vw, 72px);
+      font-weight: 300;
+      color: var(--dark-brown);
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .cta-title em {
+      font-style: italic;
+      color: var(--brown);
+    }
+
+    .cta-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: #8B7B6E;
+      line-height: 1.7;
+      margin-bottom: 56px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-dark {
+      background: var(--dark-brown);
+      color: var(--white);
+      padding: 18px 48px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+
+    .btn-dark:hover {
+      background: var(--black);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--dark-brown);
+      color: var(--dark-brown);
+      padding: 18px 48px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 400;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      background: var(--dark-brown);
+      color: var(--white);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      padding: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      letter-spacing: 8px;
+      color: var(--white);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .footer-links a {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.3);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.2);
+      letter-spacing: 1px;
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-up:nth-child(2) {
+      transition-delay: 0.1s;
+    }
+
+    .fade-up:nth-child(3) {
+      transition-delay: 0.2s;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav {
+        padding: 20px 20px;
+      }
+
+      nav.scrolled {
+        padding: 14px 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      section {
+        padding: 80px 20px;
+      }
+
+      .hero {
+        padding: 120px 20px 60px;
+      }
+
+      .hero-title {
+        font-size: 52px;
+      }
+
+      .problem-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .problem-right {
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid var(--nude);
+        padding-top: 48px;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image {
+        min-height: 300px;
+      }
+
+      .about-content {
+        padding: 60px 24px;
+      }
+
+      .about-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .cases {
+        padding: 80px 24px;
+      }
+
+      .cases-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+      }
+
+      .cases-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .case-card.large,
+      .case-card.medium,
+      .case-card.small {
+        grid-column: span 1;
+      }
+
+      .services-header {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-section {
+        padding: 100px 24px;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 40px 24px;
+      }
+    }
+
+
+    @media (max-width: 425px) {
+      .hero {
+        padding-top: 2px;
+      }
+
+      .nav.scrolled {
+        overflow-x: hidden;
+      }
+
+      #navbar.scrolled {
+        overflow-x: hidden;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo"><img src="assets/logoNext.webp" alt="NEXT" style="width: 160px; object-fit: contain;"></a>
+    <div class="nav-links">
+      <a href="#sobre">Sobre</a>
+      <a href="#cases">Cases</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#contato" class="nav-cta">Quero começar</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-texture"></div>
+    <div class="hero-lines"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Marketing para saúde</div>
+      <h1 class="hero-title">
+        Você é ótimo.<br>
+        <em>O mundo</em><br>
+        <strong>precisa saber.</strong>
+      </h1>
+      <p class="hero-sub">Transformamos profissionais da saúde em referências reconhecidas — do Instagram à autoridade que você merece ser.</p>
+      <div class="hero-actions">
+        <a href="#contato" class="btn-primary">Quero ser referência</a>
+        <a href="#cases" class="btn-ghost">Ver resultados</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      scroll
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span class="ticker-item">Posicionamento <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Autoridade Digital <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Gestão de Instagram <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Branding Médico <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Conteúdo Estratégico <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Crescimento Orgânico <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Posicionamento <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Autoridade Digital <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Gestão de Instagram <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Branding Médico <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Conteúdo Estratégico <span class="ticker-sep">✦</span></span>
+      <span class="ticker-item">Crescimento Orgânico <span class="ticker-sep">✦</span></span>
+    </div>
+  </div>
+
+  <!-- PROBLEMA -->
+  <section class="problem" id="sobre">
+    <div class="problem-grid">
+      <div class="problem-left fade-up">
+        <div class="section-label">A realidade</div>
+        <p class="problem-quote">
+          Ser bom não é suficiente. <em>Ser percebido como referência</em> é o que muda tudo.
+        </p>
+        <p class="problem-body">Você passou anos estudando, se especializando, atendendo com excelência. Mas no digital, quem aparece mais estrategicamente é quem mais atrai pacientes — independente de quem é mais competente.</p>
+      </div>
+      <div class="problem-right fade-up">
+        <div class="pain-item">
+          <div class="pain-num">01</div>
+          <div class="pain-text">
+            <h4>Instagram sem resultado</h4>
+            <p>Você posta, mas não converte. O perfil existe, mas não trabalha por você.</p>
+          </div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-num">02</div>
+          <div class="pain-text">
+            <h4>Invisível para quem importa</h4>
+            <p>Seu público ideal existe, mas não te encontra — ou não entende por que deveria te escolher.</p>
+          </div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-num">03</div>
+          <div class="pain-text">
+            <h4>Sem tempo para o marketing</h4>
+            <p>Você é médico, dentista, especialista. Não tem que ser comunicador. Esse é o nosso trabalho.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <div class="about">
+    <div class="about-image">
+      <div class="about-image-placeholder">
+        <div class="about-image-icon">H</div>
+      </div>
+      <div class="about-image-label">Heloisa Stein — Fundadora</div>
+    </div>
+    <div class="about-content">
+      <div class="section-label">Quem somos</div>
+      <h2 class="section-title">A NEXT nasceu <em>para mudar</em> o jogo da saúde no digital</h2>
+      <p class="about-body">
+        Somos uma agência <strong>especializada em marketing para saúde</strong>. Não atendemos todo mundo — atendemos bem quem escolhemos atender.<br><br>
+        Heloisa Stein fundou a NEXT com uma missão clara: <strong>fazer com que profissionais competentes sejam reconhecidos como referências</strong>. Não com fórmulas genéricas, mas com estratégias construídas para cada especialidade, cada persona, cada objetivo.
+      </p>
+      <div class="about-stats">
+        <div class="stat-item">
+          <div class="stat-num">X+</div>
+          <div class="stat-label">Médicos & especialistas</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">X×</div>
+          <div class="stat-label">Crescimento médio</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">X anos</div>
+          <div class="stat-label">No nicho de saúde</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASES -->
+  <section class="cases" id="cases">
+    <div class="cases-header">
+      <div class="cases-header-left">
+        <div class="section-label">Portfólio & resultados</div>
+        <h2 class="section-title">Cases que <em>falam</em><br>por si mesmos</h2>
+      </div>
+      <a href="#contato" class="cases-header-right">Ver todos os cases →</a>
+    </div>
+
+    <div class="cases-grid">
+
+      <!-- Card 1 — LARGE -->
+      <div class="case-card large fade-up">
+        <div class="case-img-placeholder case-bg-2">
+          <div class="case-placeholder-icon">Dra.</div>
+          <div class="case-overlay">
+            <div class="case-overlay-text">Ver case completo →</div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-tag">Lorem Ipsum · Dolor Sit</div>
+          <div class="case-name">Lorem Ipsum Dolor</div>
+          <div class="case-result">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et <strong>dolore magna aliqua</strong> ut enim ad minim veniam.</div>
+          <div class="case-result-highlight">
+            <span>Lorem Ipsum</span>
+            <small>Dolor sit amet consectetur</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 — MEDIUM -->
+      <div class="case-card medium fade-up">
+        <div class="case-img-placeholder case-bg-1">
+          <div class="case-placeholder-icon">Dr.</div>
+          <div class="case-overlay">
+            <div class="case-overlay-text">Ver case completo →</div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-tag">Lorem Ipsum · Amet</div>
+          <div class="case-name">Lorem Ipsum Dolor Sit</div>
+          <div class="case-result">Consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore. <strong>Dolore magna aliqua</strong> enim ad minim veniam quis nostrud exercitation.</div>
+          <div class="case-result-highlight">
+            <span>Lorem Ipsum</span>
+            <small>Consectetur adipiscing elit</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 — SMALL -->
+      <div class="case-card small fade-up">
+        <div class="case-img-placeholder case-bg-3">
+          <div class="case-placeholder-icon">Dra.</div>
+          <div class="case-overlay">
+            <div class="case-overlay-text">Ver case completo →</div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-tag">Lorem Ipsum</div>
+          <div class="case-name">Lorem Ipsum Amet</div>
+          <div class="case-result"><strong>Lorem ipsum dolor</strong> sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt labore et dolore.</div>
+          <div class="case-result-highlight">
+            <span>Lorem Ipsum</span>
+            <small>Adipiscing elit sed do</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 — MEDIUM -->
+      <div class="case-card medium fade-up">
+        <div class="case-img-placeholder case-bg-4">
+          <div class="case-placeholder-icon">Dr.</div>
+          <div class="case-overlay">
+            <div class="case-overlay-text">Ver case completo →</div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-tag">Lorem Ipsum · Dolor</div>
+          <div class="case-name">Lorem Ipsum Sit Amet</div>
+          <div class="case-result">Eiusmod tempor incididunt ut labore. <strong>Lorem ipsum dolor sit</strong> amet consectetur adipiscing elit sed do magna aliqua.</div>
+          <div class="case-result-highlight">
+            <span>Lorem Ipsum</span>
+            <small>Tempor incididunt labore</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 — SMALL -->
+      <div class="case-card small fade-up">
+        <div class="case-img-placeholder case-bg-5">
+          <div class="case-placeholder-icon">Dra.</div>
+          <div class="case-overlay">
+            <div class="case-overlay-text">Ver case completo →</div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-tag">Lorem Ipsum · Amet Dolor</div>
+          <div class="case-name">Lorem Ipsum Consectetur</div>
+          <div class="case-result"><strong>Lorem ipsum dolor sit</strong> amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore magna.</div>
+          <div class="case-result-highlight">
+            <span>Lorem Ipsum</span>
+            <small>Eiusmod tempor incididunt</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 — SMALL -->
+      <div class="case-card small fade-up">
+        <div class="case-img-placeholder case-bg-2" style="background: linear-gradient(135deg, #8B7355, #C9A96E);">
+          <div class="case-placeholder-icon" style="color: rgba(255,255,255,0.3);">+</div>
+          <div class="case-overlay" style="background: rgba(201,169,110,0.85);">
+            <div class="case-overlay-text" style="color: var(--black);">Você pode ser o próximo →</div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-tag">Lorem Ipsum Dolor</div>
+          <div class="case-name">Lorem Ipsum</div>
+          <div class="case-result">Adipiscing elit sed do eiusmod tempor. <strong>Lorem ipsum dolor sit amet</strong> — consectetur adipiscing elit incididunt ut labore et dolore.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="servicos">
+    <div class="services-inner">
+      <div class="services-header">
+        <div>
+          <div class="section-label">O que fazemos</div>
+          <h2 class="section-title">Serviços feitos<br>para <em>quem cura</em></h2>
+        </div>
+        <p class="services-intro">Cada serviço foi desenvolvido com a realidade do profissional de saúde em mente — sem bullshit, sem promessas vazias. Só estratégia real.</p>
+      </div>
+
+      <div class="services-list">
+
+        <div class="service-item open">
+          <div class="service-trigger" onclick="toggleService(this)">
+            <div class="service-trigger-left">
+              <span class="service-num">01</span>
+              <span class="service-name">Gestão de Instagram</span>
+            </div>
+            <div class="service-icon">+</div>
+          </div>
+          <div class="service-body">
+            <div class="service-body-inner">
+              <div class="service-body-content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-trigger" onclick="toggleService(this)">
+            <div class="service-trigger-left">
+              <span class="service-num">02</span>
+              <span class="service-name">Posicionamento & Branding</span>
+            </div>
+            <div class="service-icon">+</div>
+          </div>
+          <div class="service-body">
+            <div class="service-body-inner">
+              <div class="service-body-content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-trigger" onclick="toggleService(this)">
+            <div class="service-trigger-left">
+              <span class="service-num">03</span>
+              <span class="service-name">Produção de Conteúdo</span>
+            </div>
+            <div class="service-icon">+</div>
+          </div>
+          <div class="service-body">
+            <div class="service-body-inner">
+              <div class="service-body-content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-trigger" onclick="toggleService(this)">
+            <div class="service-trigger-left">
+              <span class="service-num">04</span>
+              <span class="service-name">Tráfego Pago para Saúde</span>
+            </div>
+            <div class="service-icon">+</div>
+          </div>
+          <div class="service-body">
+            <div class="service-body-inner">
+              <div class="service-body-content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation nisi ut aliquip commodo.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="testimonials-inner">
+      <div class="section-label">Depoimentos</div>
+      <h2 class="section-title">O que dizem<br>os <em>nossos clientes</em></h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-up">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">L</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Lorem Ipsum Dolor</div>
+              <div class="testimonial-role">Lorem Ipsum · Dolor Sit, AM</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-up">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"Consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">L</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Lorem Ipsum Sit</div>
+              <div class="testimonial-role">Lorem Ipsum · Amet Dolor, SP</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-up">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit quis nostrud exercitation."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">L</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Lorem Ipsum Consectetur</div>
+              <div class="testimonial-role">Lorem Ipsum · Sit Dolor, MG</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contato">
+    <div class="cta-inner">
+      <div class="cta-eyebrow">Vamos começar?</div>
+      <h2 class="cta-title">Sua expertise merece<br><em>ser vista</em> pelo mundo</h2>
+      <p class="cta-sub">Atendemos um número limitado de clientes por vez — porque qualidade exige atenção. Se você está pronto para ser reconhecido como referência, vamos conversar.</p>
+      <div class="cta-buttons">
+        <a href="https://wa.me/55XXXXXXXXXXX" class="btn-dark">Agendar diagnóstico gratuito</a>
+        <a href="#cases" class="btn-outline">Ver cases primeiro</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo"><img src="assets/logoNext.webp" alt="NEXT" style="height: 40px; object-fit: contain;"></div>
+    <div class="footer-links">
+      <a href="#sobre">Sobre</a>
+      <a href="#cases">Cases</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#contato">Contato</a>
+    </div>
+    <div class="footer-copy">© 2025 NEXT. Todos os direitos reservados.</div>
+  </footer>
+
+  <script>
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Service accordion
+    function toggleService(trigger) {
+      const item = trigger.closest('.service-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.service-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    // Intersection Observer for fade-up
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+
+</html>
